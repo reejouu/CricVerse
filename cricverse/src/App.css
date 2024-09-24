@@ -1,0 +1,18 @@
+.landing-page {
+  height: 200vh; /* Adjust height to allow for scrolling */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.animation-container {
+  position: relative;
+  height: 80vh; /* Adjust as needed */
+}
+
+.final-content {
+  position: relative;
+  top: 50px;
+  text-align: center;
+}
