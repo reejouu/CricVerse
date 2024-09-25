@@ -1,8 +1,7 @@
-'use client'
-
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "../ui/Navbar";
+import { Button } from "../ui/button";
 
 const ScrollFrame = () => {
   const frames = Array.from(
@@ -23,7 +22,6 @@ const ScrollFrame = () => {
   );
   const [currentFrame, setCurrentFrame] = useState(0);
   const [showNavbar, setShowNavbar] = useState(false);
-  const [imageLoaded, setImageLoaded] = useState(false); // State to track image loading
 
   useEffect(() => {
     const unsubscribe = frameIndex.onChange((v) =>
@@ -34,28 +32,21 @@ const ScrollFrame = () => {
 
   useEffect(() => {
     const handleScrollChange = (progress) => {
-      // Set showNavbar to true only when reaching the end
       setShowNavbar(progress >= 0.99);
     };
 
     const unsubscribe = scrollYProgress.onChange(handleScrollChange);
-    return () => unsubscribe(); // Cleanup subscription
+    return () => unsubscribe();
   }, [scrollYProgress]);
-
-  // Handle image load event
-  const handleImageLoad = () => {
-    setImageLoaded(true); // Mark the image as loaded
-  };
 
   return (
     <div ref={containerRef} className="landing-page h-[300vh] element">
-      {showNavbar && <Navbar />} {/* Conditionally render the Navbar */}
+      {showNavbar && <Navbar />}
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         <img
           src={frames[currentFrame]}
           alt={`Virat Kohli in action - Frame ${currentFrame + 1}`}
           className="w-full h-full object-cover"
-          onLoad={handleImageLoad} // Call handleImageLoad on image load
         />
 
         <motion.div
