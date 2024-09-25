@@ -1,11 +1,14 @@
 import "./App.css";
-import ScrollFrame from "./components/self/ScrollFrame";
+import { Routes, Route } from "react-router-dom";
+import Landing from "./pages/Landing";
 
 const App = () => {
   return (
-    <div className="App element">
-      <ScrollFrame />
-    </div>
+    <>
+      <Routes>
+        <Route path="/" element={<Landing />} />
+      </Routes>
+    </>
   );
 };
 
