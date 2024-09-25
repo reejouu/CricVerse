@@ -1,6 +1,8 @@
+// ScrollFrame.js
 import { useEffect, useRef, useState } from "react";
-
 import { motion, useScroll, useTransform } from "framer-motion";
+import Navbar from "../Navbar";
+
 
 const ScrollFrame = () => {
   const frames = Array.from(
@@ -20,6 +22,7 @@ const ScrollFrame = () => {
     [0, frames.length - 1]
   );
   const [currentFrame, setCurrentFrame] = useState(0);
+  const [showNavbar, setShowNavbar] = useState(false);
 
   useEffect(() => {
     const unsubscribe = frameIndex.onChange((v) =>
@@ -28,8 +31,21 @@ const ScrollFrame = () => {
     return unsubscribe;
   }, [frameIndex]);
 
+  useEffect(() => {
+    // Show the navbar when the scroll reaches near the bottom
+    scrollYProgress.onChange((progress) => {
+      if (progress >= 0.99) {
+        setShowNavbar(true);
+      } else {
+        setShowNavbar(false);
+      }
+    });
+  }, [scrollYProgress]);
+
   return (
     <div ref={containerRef} className="landing-page h-[300vh] element">
+      {showNavbar && <Navbar/>} {/* Conditionally render the Navbar */}
+
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         <img
           src={frames[currentFrame]}
