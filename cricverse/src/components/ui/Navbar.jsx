@@ -12,7 +12,6 @@ const navItems = [
 const Navbar = () => {
   const location = useLocation(); // Get the current location
 
-  // Determine the active item based on the current pathname
   const [activeItem, setActiveItem] = useState(location.pathname);
 
   useEffect(() => {
