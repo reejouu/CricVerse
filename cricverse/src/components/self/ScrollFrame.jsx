@@ -1,8 +1,7 @@
 // ScrollFrame.js
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Navbar from "../Navbar";
-
+import Navbar from "../ui/Navbar";
 
 const ScrollFrame = () => {
   const frames = Array.from(
@@ -44,8 +43,7 @@ const ScrollFrame = () => {
 
   return (
     <div ref={containerRef} className="landing-page h-[300vh] element">
-      {showNavbar && <Navbar/>} {/* Conditionally render the Navbar */}
-
+      {showNavbar && <Navbar />} {/* Conditionally render the Navbar */}
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         <img
           src={frames[currentFrame]}
