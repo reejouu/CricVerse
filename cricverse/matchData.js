@@ -9,12 +9,12 @@ export const hardCodedMatches = [
       {
         shortname: "IND",
         name: "India",
-        img: "public/flags/Flag_of_India_Flat_Square.png",
+        img: "/flags/Flag_of_India_Flat_Square.png",
       },
       {
         shortname: "AUS",
         name: "Australia",
-        img: "public/flags/Flag_of_Australia_Flat_Square.png",
+        img: "/flags/Flag_of_Australia_Flat_Square.png",
       },
     ],
     score: [{ inning: "India 1st Innings", r: 300, w: 5, o: 50 }],
@@ -31,12 +31,12 @@ export const hardCodedMatches = [
       {
         shortname: "ENG",
         name: "England",
-        img: "public/flags/Flag_of_England_Flat_Square.png",
+        img: "/flags/Flag_of_England_Flat_Square.png",
       },
       {
         shortname: "PAK",
         name: "Pakistan",
-        img: "public/flags/Flag_of_Pakistan_Flat_Square.png",
+        img: "/flags/Flag_of_Pakistan_Flat_Square.png",
       },
     ],
     score: [],
@@ -53,12 +53,12 @@ export const hardCodedMatches = [
       {
         shortname: "SA",
         name: "South Africa",
-        img: "public/flags/Flag_of_South_Africa_Flat_Square.png",
+        img: "/flags/Flag_of_South_Africa_Flat_Square.png",
       },
       {
         shortname: "NZ",
         name: "New Zealand",
-        img: "public/flags/Flag_of_New_Zealand_Flat_Square.png",
+        img: "/flags/Flag_of_New_Zealand_Flat_Square.png",
       },
     ],
     score: [{ inning: "South Africa 1st Innings", r: 280, w: 6, o: 48 }],
@@ -75,12 +75,12 @@ export const hardCodedMatches = [
       {
         shortname: "WI",
         name: "West Indies",
-        img: "public/flags/west_indies.png",
+        img: "/flags/west_indies.png",
       },
       {
         shortname: "BAN",
         name: "Bangladesh",
-        img: "public/flags/Flag_of_Bangladesh_Flat_Square.png",
+        img: "/flags/Flag_of_Bangladesh_Flat_Square.png",
       },
     ],
     score: [],
@@ -97,12 +97,12 @@ export const hardCodedMatches = [
       {
         shortname: "SL",
         name: "Sri Lanka",
-        img: "public/flags/Flag_of_Sri_Lanka_Flat_Square.png",
+        img: "/flags/Flag_of_Sri_Lanka_Flat_Square.png",
       },
       {
         shortname: "AFG",
         name: "Afghanistan",
-        img: "public/flags/Flag_of_Afghanistan_Flat_Square.png",
+        img: "/flags/Flag_of_Afghanistan_Flat_Square.png",
       },
     ],
     score: [{ inning: "Sri Lanka 1st Innings", r: 250, w: 7, o: 50 }],

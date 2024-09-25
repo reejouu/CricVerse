@@ -14,7 +14,10 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Landing />} />
         <Route element={<Layout />}>
-          <Route path="/tournaments" element={<Tournament />} />
+          <Route
+            path="/tournaments"
+            element={<Tournament transparent={true} />}
+          />
           <Route path="/players" element={<Players />} />
           <Route path="/login" element={<Login />} />
           <Route path="/SignUp" element={<SignUp/>} />

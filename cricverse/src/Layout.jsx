@@ -1,12 +1,12 @@
-import Navbar from './components/ui/Navbar';
-import { Outlet } from 'react-router-dom'; 
+import Navbar from "./components/ui/Navbar";
+import { Outlet } from "react-router-dom";
 
 const Layout = () => {
   return (
     <div>
-      <Navbar />
+      <Navbar transparent={true} />
       <main>
-        <Outlet /> 
+        <Outlet />
       </main>
     </div>
   );

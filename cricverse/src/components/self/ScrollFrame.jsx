@@ -5,8 +5,8 @@ import { Cover } from "../ui/cover";
 
 const ScrollFrame = () => {
   const frames = Array.from(
-    { length: 198 },
-    (_, i) => `/virat/ezgif-frame-${i + 1}.png`
+    { length: 188 },
+    (_, i) => `/virat/ezgif-frame-190-min (${i + 11}).png`
   );
 
   const containerRef = useRef(null);

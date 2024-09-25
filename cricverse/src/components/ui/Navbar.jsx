@@ -9,7 +9,8 @@ const navItems = [
   { name: "About Us", href: "/aboutus" },
 ];
 
-const Navbar = () => {
+const Navbar = ({ transparent }) => {
+  // Add transparent prop
   const location = useLocation(); // Get the current location
 
   const [activeItem, setActiveItem] = useState(location.pathname);
@@ -20,7 +21,11 @@ const Navbar = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm text-gray-100 py-2 px-4 z-50 shadow-lg" // Updated padding and shadow for sophistication
+      className={`fixed top-0 left-0 w-full ${
+        transparent
+          ? "bg-transparent"
+          : "bg-gray-900 bg-opacity-90 backdrop-blur-sm"
+      } text-gray-100 py-4 px-4 z-50 shadow-lg`}
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -37,9 +42,9 @@ const Navbar = () => {
             <motion.li
               key={item.name}
               className={`text-sm font-medium cursor-pointer px-2 py-1 rounded-md transition-colors ${
-                activeItem === item.href // Check if the current pathname matches the item's href
-                  ? "bg-green-700 text-white" // Highlight if active
-                  : "text-gray-300 hover:bg-gray-800 hover:text-green-300" // Default styles
+                activeItem === item.href
+                  ? "bg-green-700 text-white"
+                  : "text-gray-300 hover:bg-gray-800 hover:text-green-300"
               }`}
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -60,7 +65,7 @@ const Navbar = () => {
               Login
             </motion.button>
           </Link>
-          <Link to='SignUp'>
+          <Link to="SignUp">
             <motion.button
               className="border border-green-700 text-green-700 hover:bg-green-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm"
               whileHover={{ scale: 1.05 }}
