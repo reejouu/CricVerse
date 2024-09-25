@@ -1,8 +1,9 @@
 import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
+import "./App.css";
 
 const frames = Array.from(
-  { length: 200 },
+  { length: 198 },
   (_, i) => `/virat/ezgif-frame-${i + 1}.png`
 );
 
@@ -42,9 +43,7 @@ const CricketLandingPage = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: scrollYProgress.get() > 0.9 ? 1 : 0 }}
         >
-          <h1 className="text-4xl font-bold mb-4">
-            Welcome to the Cricket World!
-          </h1>
+          <h1 className="text-4xl font-bold mb-4">Welcome to the CricVerse!</h1>
           <p className="text-lg">
             Explore the latest matches, players, and stats.
           </p>
