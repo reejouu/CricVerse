@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "../ui/Navbar";
 import { Button } from "../ui/button";
+import { Cover } from "../ui/cover";
 
 const ScrollFrame = () => {
   const frames = Array.from(
@@ -54,10 +55,13 @@ const ScrollFrame = () => {
           initial={{ opacity: 0 }}
           animate={{ opacity: scrollYProgress.get() > 0.9 ? 1 : 0 }}
         >
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to CricVerse!</h1>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">
+            Welcome to <Cover>CricVerse</Cover>
+          </h1>
           <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
-            Dive into the world of cricket with CricVerse. Get real-time match updates, 
-            in-depth player statistics, and exclusive cricket content all in one place.
+            Dive into the world of cricket with CricVerse. Get real-time match
+            updates, in-depth player statistics, and exclusive cricket content
+            all in one place.
           </p>
           <Button
             variant="secondary"
