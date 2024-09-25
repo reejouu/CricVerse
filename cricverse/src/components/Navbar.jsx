@@ -13,23 +13,23 @@ const Navbar = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-md text-gray-100 p-4 z-50 shadow-lg"
+      className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm text-gray-100 py-2 px-4 z-50 shadow-md"
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <nav className="container mx-auto flex flex-wrap justify-between items-center">
-        <a href="/" className="text-3xl font-bold tracking-tighter text-blue-400 hover:text-blue-300 transition-colors">
+      <nav className="container mx-auto flex items-center justify-between h-12">
+        <a href="/" className="text-2xl font-bold tracking-tighter text-green-400 hover:text-green-300 transition-colors">
           CricVerse
         </a>
-        <ul className="flex space-x-1 sm:space-x-4 mt-4 sm:mt-0">
+        <ul className="flex space-x-1 sm:space-x-4">
           {navItems.map((item) => (
             <motion.li
               key={item.name}
-              className={`text-sm sm:text-base font-medium cursor-pointer px-3 py-2 rounded-md transition-colors ${
+              className={`text-sm font-medium cursor-pointer px-2 py-1 rounded-md transition-colors ${
                 activeItem === item.name 
-                  ? "bg-blue-600 text-white" 
-                  : "text-gray-300 hover:bg-gray-800 hover:text-white"
+                  ? "bg-green-700 text-white" 
+                  : "text-gray-300 hover:bg-gray-800 hover:text-green-300"
               }`}
               onClick={() => setActiveItem(item.name)}
               whileHover={{ scale: 1.05 }}
@@ -40,7 +40,7 @@ const Navbar = () => {
           ))}
         </ul>
         <motion.button
-          className="bg-blue-600 text-white hover:bg-blue-700 px-4 py-2 rounded-md font-medium transition-colors mt-4 sm:mt-0"
+          className="bg-green-700 text-white hover:bg-green-600 px-3 py-1 rounded-md text-sm font-medium transition-colors"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
         >
