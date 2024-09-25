@@ -1,8 +1,10 @@
-// ScrollFrame.js
+'use client'
+
 import { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
-import Navbar from "../Navbar";
 
+import { Button } from "@/components/ui/button";
+import Navbar from "./Navbar";
 
 const ScrollFrame = () => {
   const frames = Array.from(
@@ -23,6 +25,7 @@ const ScrollFrame = () => {
   );
   const [currentFrame, setCurrentFrame] = useState(0);
   const [showNavbar, setShowNavbar] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false); // State to track image loading
 
   useEffect(() => {
     const unsubscribe = frameIndex.onChange((v) =>
@@ -32,44 +35,50 @@ const ScrollFrame = () => {
   }, [frameIndex]);
 
   useEffect(() => {
-    // Show the navbar when the scroll reaches near the bottom
-    scrollYProgress.onChange((progress) => {
-      if (progress >= 0.99) {
-        setShowNavbar(true);
-      } else {
-        setShowNavbar(false);
-      }
-    });
+    const handleScrollChange = (progress) => {
+      // Set showNavbar to true only when reaching the end
+      setShowNavbar(progress >= 0.99);
+    };
+
+    const unsubscribe = scrollYProgress.onChange(handleScrollChange);
+    return () => unsubscribe(); // Cleanup subscription
   }, [scrollYProgress]);
+
+  // Handle image load event
+  const handleImageLoad = () => {
+    setImageLoaded(true); // Mark the image as loaded
+  };
 
   return (
     <div ref={containerRef} className="landing-page h-[300vh] element">
-      {showNavbar && <Navbar/>} {/* Conditionally render the Navbar */}
+      {/* Only render Navbar when image is loaded and showNavbar is true */}
+      {imageLoaded && showNavbar && <Navbar />}
 
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         <img
           src={frames[currentFrame]}
-          alt={`Frame ${currentFrame}`}
+          alt={`Virat Kohli in action - Frame ${currentFrame + 1}`}
           className="w-full h-full object-cover"
+          onLoad={handleImageLoad} // Call handleImageLoad on image load
         />
 
-        {/* Content overlay */}
         <motion.div
-          className="absolute inset-0 flex flex-col justify-center items-center text-center text-white"
+          className="absolute inset-0 flex flex-col justify-center items-center text-center text-white bg-black bg-opacity-50"
           initial={{ opacity: 0 }}
           animate={{ opacity: scrollYProgress.get() > 0.9 ? 1 : 0 }}
         >
-          <h1 className="text-4xl font-bold mb-4">Welcome to CricVerse!</h1>
-          <p className="text-lg">
-            Explore the latest matches, players, and stats.
+          <h1 className="text-4xl md:text-6xl font-bold mb-4">Welcome to CricVerse!</h1>
+          <p className="text-lg md:text-xl max-w-2xl mx-auto mb-8">
+            Dive into the world of cricket with CricVerse. Get real-time match updates, 
+            in-depth player statistics, and exclusive cricket content all in one place.
           </p>
-          <motion.button
-            className="mt-8 px-6 py-2 bg-white text-black rounded-full font-semibold"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <Button
+            variant="secondary"
+            size="lg"
+            className="font-semibold text-lg"
           >
-            Get Started
-          </motion.button>
+            Explore CricVerse
+          </Button>
         </motion.div>
       </div>
     </div>
