@@ -1,8 +1,10 @@
-element {
-  -ms-overflow-style: none; /* for Internet Explorer, Edge */
-  scrollbar-width: none; /* for Firefox */
-  overflow-y: scroll;
+/* Hide scrollbars for all elements */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* Internet Explorer and Edge */
 }
-element::-webkit-scrollbar {
-  display: none; /* for Chrome, Safari, and Opera */
+
+/* Hide scrollbars for WebKit browsers (Chrome, Safari) */
+*::-webkit-scrollbar {
+  display: none; /* Safari and Chrome */
 }

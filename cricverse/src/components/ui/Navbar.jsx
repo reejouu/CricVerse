@@ -21,7 +21,7 @@ const Navbar = () => {
 
   return (
     <motion.div
-      className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm text-gray-100 py-2 px-4 z-50 shadow-md"
+      className="fixed top-0 left-0 w-full bg-gray-900 bg-opacity-90 backdrop-blur-sm text-gray-100 py-4 px-4 z-50 shadow-lg" // Updated padding and shadow for sophistication
       initial={{ opacity: 0, y: -50 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
@@ -51,13 +51,22 @@ const Navbar = () => {
             </motion.li>
           ))}
         </ul>
-        <motion.button
-          className="bg-green-700 text-white hover:bg-green-600 px-3 py-1 rounded-md text-sm font-medium transition-colors"
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-        >
-          Login
-        </motion.button>
+        <div className="flex space-x-4">
+          <motion.button
+            className="bg-green-700 text-white hover:bg-green-600 px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Login
+          </motion.button>
+          <motion.button
+            className="border border-green-700 text-green-700 hover:bg-green-700 hover:text-white px-4 py-2 rounded-md text-sm font-medium transition-colors shadow-sm"
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+          >
+            Sign Up
+          </motion.button>
+        </div>
       </nav>
     </motion.div>
   );
