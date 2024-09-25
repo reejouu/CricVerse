@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    // ...
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
-    // ...
-  }
+  },
+  "include": ["src/**/*"], // Include all files in the src directory
+  "exclude": ["node_modules", "dist"] // Optionally exclude specific folders
 }
