@@ -8,7 +8,7 @@ import {
   Calendar,
   Trophy,
 } from "lucide-react";
-import { hardCodedMatches, hardCodedTournaments } from "../../matchdata";
+import { hardCodedMatches, hardCodedTournaments } from "../../matchData";
 
 const TournamentPage = () => {
   const [matches, setMatches] = useState([]);
