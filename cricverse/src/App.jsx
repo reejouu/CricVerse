@@ -1,9 +1,9 @@
-import React, { useRef, useEffect, useState } from "react";
+import { useRef, useEffect, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
 const frames = Array.from(
-  { length: 90 },
-  (_, i) => `/ezgif-frame-${i + 1}.jpg`
+  { length: 200 },
+  (_, i) => `/virat/ezgif-frame-${i + 1}.png`
 );
 
 const CricketLandingPage = () => {
@@ -28,7 +28,7 @@ const CricketLandingPage = () => {
   }, [frameIndex]);
 
   return (
-    <div ref={containerRef} className="landing-page h-[300vh]">
+    <div ref={containerRef} className="landing-page h-[300vh] element">
       <div className="sticky top-0 w-full h-screen overflow-hidden">
         <img
           src={frames[currentFrame]}
@@ -63,7 +63,7 @@ const CricketLandingPage = () => {
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="App no-scrollbar">
       <CricketLandingPage />
     </div>
   );

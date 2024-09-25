@@ -1,18 +1,8 @@
-.landing-page {
-  height: 200vh; /* Adjust height to allow for scrolling */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+element {
+  -ms-overflow-style: none; /* for Internet Explorer, Edge */
+  scrollbar-width: none; /* for Firefox */
+  overflow-y: scroll;
 }
-
-.animation-container {
-  position: relative;
-  height: 80vh; /* Adjust as needed */
-}
-
-.final-content {
-  position: relative;
-  top: 50px;
-  text-align: center;
+element::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */
 }
