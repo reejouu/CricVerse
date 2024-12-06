@@ -1,10 +1,10 @@
 {
   "compilerOptions": {
-    "baseUrl": ".",
+    "baseUrl": "./src", // Base directory for resolving modules
     "paths": {
-      "@/*": ["./src/*"]
+      "@/*": ["*"] // Map `@/` to all files under `src`
     }
   },
-  "include": ["src/**/*"], // Include all files in the src directory
-  "exclude": ["node_modules", "dist"] // Optionally exclude specific folders
+  "include": ["src/**/*"], // Include all files in `src`
+  "exclude": ["node_modules", "dist"] // Exclude generated files
 }
